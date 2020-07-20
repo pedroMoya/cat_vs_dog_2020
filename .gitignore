@@ -1,0 +1,13 @@
+/.idea/
+/2_RAW_DATA_DIR/
+/6_CHECKPOINTS_DIR/
+/7_TEST_DATA_PATH/
+/9.2_OTHERS_OUTPUTS/
+/5.4_EXTERNAL_LIBRARIES/
+/backups/
+/venv/
+/.git - Acceso directo.lnk
+/build_tree.txt
+/4_TRAIN_DATA_PATH/
+/9.1_MODELS_EVALUATION
+/3_CLEAN_DATA_DIR/
