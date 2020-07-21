@@ -21,7 +21,6 @@ with open('./settings.json') as local_json_file:
 
 # import custom libraries
 sys.path.insert(1, local_script_settings['custom_library_path'])
-from quality_factor_detector import quality_factor
 from k_fold_data_creator import k_fold_builder
 
 if local_script_settings['metaheuristic_optimization'] == "True":
