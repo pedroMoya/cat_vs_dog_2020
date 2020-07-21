@@ -206,8 +206,8 @@ def evaluate():
             print('Confusion Matrix for binary classification')
             class_1_prob = np.sum(y_predictions_raw[:, nof_K_fold_groups: nof_methods * nof_K_fold_groups],
                                   axis=1)
-            # no_hidden_message_prob = np.round(np.add(1., -hidden_message_prob))
-            print('prob hidden_message:\n', class_1_prob, '\n')
+            # class_2_prob = np.round(np.add(1., -hidden_message_prob))
+            print('prob class_1:\n', class_1_prob, '\n')
             labels = np.zeros(shape=class_1_prob.shape, dtype=np.dtype('int32'))
             labels[nof_evaluation_samples_by_group * nof_K_fold_groups:] = 1
             binary_predictions = np.round(class_1_prob).astype('int')
