@@ -138,16 +138,20 @@ def train():
         validation_set_folder = model_hyperparameters['validation_set_folder']
 
         # load raw_data and cleaned_data
-        column_names = ['id_number', 'method', 'quality_factor', 'group', 'filename', 'filepath']
+        column_names = ['id_number', 'class', 'group', 'filename', 'filepath']
         x_col = 'filepath'
-        y_col = 'method'
+        y_col = 'class'
         metadata_train_images = \
             pd.read_csv(''.join([local_script_settings['train_data_path'], 'training_metadata.csv']),
                         dtype=str, names=column_names, header=None)
 
         train_datagen = preprocessing.image.ImageDataGenerator(rescale=None,
-                                                               vertical_flip=True,
                                                                horizontal_flip=True,
+                                                               width_shift_range=0.1,
+                                                               height_shift_range=0.1,
+                                                               rotation_range=15,
+                                                               shear_range=0.1,
+                                                               zoom_range=0.2,
                                                                validation_split=validation_split)
         train_generator = train_datagen.flow_from_dataframe(dataframe=metadata_train_images,
                                                             directory=None,
@@ -159,7 +163,7 @@ def train():
                                                             color_mode='rgb',
                                                             shuffle=True,
                                                             subset='training')
-        print('labels and indices of train_generator')
+        print('classes and indices of train_generator')
         print(train_generator.class_indices)
         validation_datagen = \
             preprocessing.image.ImageDataGenerator(rescale=None,
@@ -174,7 +178,7 @@ def train():
                                                                       color_mode='rgb',
                                                                       shuffle=True,
                                                                       subset='validation')
-        print('labels and indices of validation_generator')
+        print('classes and indices of validation_generator')
         print(validation_generator.class_indices)
 
         # build, compile and save model

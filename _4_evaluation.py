@@ -134,10 +134,6 @@ def evaluate():
                 print('type of model not understood')
                 return False
 
-            # custom_obj = {'customized_loss': customized_loss}
-            # classifier = models.load_model(''.join([local_script_settings['models_path'], current_model_name,
-            #                                         '_trained_']), custom_objects=custom_obj)
-
             classifier.summary()
             weights_file_name = local_script_settings['weights_loaded_in evaluation']
             if weights_file_name == 'from_today':
@@ -167,7 +163,7 @@ def evaluate():
             #     logger.info('error at folder_for_evaluation generation')
             #     return False
 
-            # Outcomes: accuracy - confusion_matrix
+            # Outcomes: accuracy - confusion_matrix - AUC_ROC
             try:
                 nof_methods = local_script_settings['nof_methods']
                 nof_K_fold_groups = local_script_settings['nof_K_fold_groups']
@@ -176,13 +172,12 @@ def evaluate():
                 input_shape_y = model_hyperparameters['input_shape_y']
                 input_shape_x = model_hyperparameters['input_shape_x']
                 test_datagen = \
-                    preprocessing.image.ImageDataGenerator(rescale=None,
-                                                           validation_split=0.0010)
-                column_names = ['id_number', 'method', 'quality_factor', 'group', 'filename', 'filepath']
+                    preprocessing.image.ImageDataGenerator(rescale=None)
+                column_names = ['id_number', 'class', 'group', 'filename', 'filepath']
                 x_col = 'filepath'
-                y_col = 'method'
+                y_col = 'class'
                 metadata_train_images = \
-                    pd.read_csv(''.join([local_script_settings['train_data_path'], 'training_metadata.csv']),
+                    pd.read_csv(''.join([local_script_settings['evaluation_data_path'], 'evaluation_metadata.csv']),
                                 dtype=str, names=column_names, header=None)
                 test_set = test_datagen.flow_from_dataframe(dataframe=metadata_train_images,
                                                             directory=None,
@@ -192,17 +187,16 @@ def evaluate():
                                                             target_size=(input_shape_y, input_shape_x),
                                                             batch_size=batch_size,
                                                             color_mode='rgb',
-                                                            class_mode='categorical',
-                                                            subset='validation')
-                y_predictions_raw = classifier.predict(test_set, workers=8)
+                                                            class_mode='categorical')
+                y_predictions_raw = classifier.predict(test_set, workers=9)
                 print(y_predictions_raw)
                 y_predictions = y_predictions_raw.argmax(axis=1)
 
                 print('Confusion Matrix for all categories')
                 print(confusion_matrix(test_set.classes, y_predictions))
                 print('Classification Report')
-                target_names = ['0', '1', '2', '3']
-                # print(classification_report(test_set.classes, y_predictions, labels=target_names))
+                target_names = ['cat', 'dog']
+                print(classification_report(test_set.classes, y_predictions, labels=target_names))
                 print('\nevaluation of classifier by tf.keras.models.evaluate:')
                 print(classifier.evaluate(x=test_set, verbose=1, return_dict=True))
                 print("\nlog_loss(sklearn.metrics):", log_loss(np.asarray(test_set.classes),
@@ -212,7 +206,7 @@ def evaluate():
                                                                predictions=y_predictions)
                 print(confusion_matrix_tf)
 
-                # calculating if stenographic method was used or not 0: no_hidden_message 1: hidden_message
+                # calculating to binary classification first class vs others
                 print('\nadjusting evaluation to ~no-hidden or hidden message in image~ binary classification')
                 print('Confusion Matrix for binary classification')
                 hidden_message_prob = np.sum(y_predictions_raw[:, nof_K_fold_groups: nof_methods * nof_K_fold_groups],

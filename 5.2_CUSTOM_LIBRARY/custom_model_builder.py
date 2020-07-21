@@ -38,8 +38,6 @@ logger.addHandler(logHandler)
 # load custom libraries
 sys.path.insert(1, local_submodule_settings['custom_library_path'])
 from model_analyzer import model_structure
-from custom_alternative_training import alternative_training
-from core_alternative_training import core_alternative_training
 
 
 # class definitions
@@ -297,9 +295,9 @@ class model_classifier_:
 
             elif local_settings['use_efficientNetB2'] == 'True':
                 type_of_model = '_EfficientNetB2'
-                pretrained_weights = ''.join([local_settings['models_path'],
-                                              local_hyperparameters['weights_for_training_efficientnetb2']])
-                classifier_ = tf.keras.applications.EfficientNetB2(include_top=False, weights=None,
+                # pretrained_weights = ''.join([local_settings['models_path'],
+                #                               local_hyperparameters['weights_for_training_efficientnetb2']])
+                classifier_ = tf.keras.applications.EfficientNetB2(include_top=False, weights='imagenet',
                                                                    input_tensor=None, input_shape=None,
                                                                    pooling=None,
                                                                    classifier_activation='softmax')
@@ -314,7 +312,7 @@ class model_classifier_:
                 #         layer.trainable = False
 
                 if local_settings['nof_methods'] == 2:
-                    # if two classes, log(pos/neg) = -0.477121254719
+                    # if two classes, and imbalanced, bias_initializer = log(pos/neg)
                     bias_initializer = tf.keras.initializers.Constant(local_hyperparameters['bias_initializer'])
                 else:
                     bias_initializer = tf.keras.initializers.Constant(0)
@@ -331,29 +329,6 @@ class model_classifier_:
                 effnb2_model.build(input_shape=(input_shape_y, input_shape_x, nof_channels))
                 effnb2_model.compile(optimizer=optimizer_function, loss=losses_list, metrics=metrics_list)
                 classifier_ = effnb2_model
-
-                if local_settings['alternative_training_generator'] == 'True':
-                    alternative_training_instance = alternative_training()
-                    alternative_training_review = alternative_training_instance.train_model(classifier_,
-                                                                                            local_hyperparameters,
-                                                                                            local_settings)
-                    if alternative_training_review:
-                        print('success in alternative training (obtain data predictions)')
-                        return True
-                    else:
-                        print('error at alternative training')
-                        return False
-                if local_settings['alternative_training'] == 'True':
-                    my_question = 'meaning_of_existence'
-                    core_alternative_training_computation_instance = core_alternative_training()
-                    core_alternative_training_computation_instance_review = \
-                        core_alternative_training_computation_instance.imagine(my_question, local_settings)
-                    if core_alternative_training_computation_instance_review:
-                        print('success in core brain alternative training (smart processing of data)')
-                        return True
-                    else:
-                        print('error at core brain alternative training')
-                        return False
 
             else:
                 print('model to use is not defined')

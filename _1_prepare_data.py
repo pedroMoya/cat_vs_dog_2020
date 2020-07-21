@@ -64,42 +64,56 @@ def prepare():
     try:
         # define filepaths
         raw_data_path = local_script_settings['raw_data_path']
-        method_0_raw_data_path = ''.join([raw_data_path, local_script_settings['method_0_folder']])
-        method_1_raw_data_path = ''.join([raw_data_path, local_script_settings['method_1_folder']])
-        method_2_raw_data_path = ''.join([raw_data_path, local_script_settings['method_2_folder']])
-        method_3_raw_data_path = ''.join([raw_data_path, local_script_settings['method_3_folder']])
+        label_0_raw_data_path = ''.join([raw_data_path, local_script_settings['label_0_folder']])
+        label_1_raw_data_path = ''.join([raw_data_path, local_script_settings['label_1_folder']])
+        label_0_raw_data_evaluation_path = ''.join([raw_data_path, local_script_settings['label_0_evaluation_folder']])
+        label_1_raw_data_evaluation_path = ''.join([raw_data_path, local_script_settings['label_1_evaluation_folder']])
 
         # extract files
         if not os.path.isfile(''.join([local_script_settings['raw_data_path'], 'images_localization.txt'])):
-            images_method_0 = [''.join([method_0_raw_data_path, filename])
-                               for filename in os.listdir(method_0_raw_data_path)]
-            images_method_1 = [''.join([method_1_raw_data_path, filename])
-                               for filename in os.listdir(method_1_raw_data_path)]
-            images_method_2 = [''.join([method_2_raw_data_path, filename])
-                               for filename in os.listdir(method_2_raw_data_path)]
-            images_method_3 = [''.join([method_3_raw_data_path, filename])
-                               for filename in os.listdir(method_3_raw_data_path)]
-            images_loc = ','.join(images_method_0 + images_method_1 + images_method_2 + images_method_3)
+            images_label_0 = [''.join([label_0_raw_data_path, filename])
+                              for filename in os.listdir(label_0_raw_data_path)]
+            images_label_1 = [''.join([label_1_raw_data_path, filename])
+                              for filename in os.listdir(label_1_raw_data_path)]
+            evaluation_images_label_0 = [''.join([label_0_raw_data_evaluation_path, filename])
+                                         for filename in os.listdir(label_0_raw_data_evaluation_path)]
+            evaluation_images_label_1 = [''.join([label_1_raw_data_evaluation_path, filename])
+                                         for filename in os.listdir(label_1_raw_data_evaluation_path)]
+
+            images_loc = ','.join(images_label_0 + images_label_1)
+            evaluation_images_loc = ','.join(evaluation_images_label_0 + evaluation_images_label_1)
+
             # save
             with open(''.join([local_script_settings['raw_data_path'], 'images_localization.txt']), 'w') as f:
                 f.write(images_loc)
                 f.close()
             images_loc = images_loc.split(',')
+            with open(''.join([local_script_settings['raw_data_path'], 'evaluation_images_localization.txt']), 'w') as f:
+                f.write(evaluation_images_loc)
+                f.close()
+            evaluation_images_loc = evaluation_images_loc.split(',')
         else:
             with open(''.join([local_script_settings['raw_data_path'], 'images_localization.txt'])) as f:
                 chain = f.read()
                 images_loc = chain.split(',')
                 f.close()
+            with open(''.join([local_script_settings['raw_data_path'], 'evaluation_images_localization.txt'])) as f:
+                chain = f.read()
+                evaluation_images_loc = chain.split(',')
+                f.close()
         nof_images = len(images_loc)
-        print('total jpg images found:', nof_images)
+        eval_nof_images = len(evaluation_images_loc)
+        print('total jpg images found for training:', nof_images)
+        print('total jpg images found for evaluation:', eval_nof_images)
 
         # open raw_data and disaggregation
-        # format of training_metadata: [id_number, method, quality_factor, group, filename, filepath]
+        # format of training_metadata: [id_number, label, quality_factor, group, filename, filepath]
         id_number = 0
         nof_groups = local_script_settings['nof_K_fold_groups']
         training_metadata = []
         print('first pre-processing step: disaggregation')
         if local_script_settings['disaggregation_done'] == "False":
+            # train dataset
             for image_path in images_loc:
                 filename = image_path.split('/')[-1]
                 # train_data_path_template = local_script_settings['raw_data_path']
@@ -108,44 +122,56 @@ def prepare():
                 k_fold_instance = k_fold_builder()
                 group = np.int(k_fold_instance.assign(id_number, nof_groups))
 
-                # detecting the steganographic-method by folder
-                if 'Cover' in image_path:
-                    method = 0
-                    # train_data_path = ''.join([train_data_path_template, 'method_0_'])
-                elif 'JMiPOD' in image_path:
-                    method = 1
-                    # train_data_path = ''.join([train_data_path_template, 'method_1_'])
-                elif 'JUNIWARD' in image_path:
-                    method = 1
-                    # train_data_path = ''.join([train_data_path_template, 'method_2_'])
-                elif 'UERD' in image_path:
-                    method = 1
-                    # train_data_path = ''.join([train_data_path_template, 'method_3_'])
+                # detecting the label by folder or filename
+                if 'cat' in image_path:
+                    label = 'cat'
+                    # train_data_path = ''.join([train_data_path_template, 'label_0_'])
+                elif 'dog' in image_path:
+                    label= 'dog'
+                    # train_data_path = ''.join([train_data_path_template, 'label_1_'])
                 else:
-                    print('steganographic-method not understood')
+                    print('label not understood')
                     return False
-                    # detecting the compression or quality_factor
-                quality_factor_instance = quality_factor()
-                quality_factor_detected = quality_factor_instance.detect(image_path)
-                # if local_script_settings('use_quality_factor_for_disaggregation') == 'True':
-                #     # this folders will need to be created (not currently in use)
-                #     train_data_path = ''.join([train_data_path, 'quality_f_', quality_factor_detected, '_'])
-                # storing the file in the correspondent folder
+
                 train_data_path_filename = image_path
-                # os.makedirs(os.path.dirname(train_data_path_filename), exist_ok=True)
-                # shutil.copyfile(image_path, train_data_path_filename)
-                training_metadata.append([id_number, method, quality_factor_detected, group, filename,
-                                          train_data_path_filename])
+                training_metadata.append([id_number, label, group, filename, train_data_path_filename])
                 id_number += 1
+
+            # validation dataset
+            id_number = 0
+            evaluation_metadata = []
+            for image_path in evaluation_images_loc:
+                filename = image_path.split('/')[-1]
+
+                # detecting the label by folder or filename
+                if 'cat' in image_path:
+                    label = 'cat'
+                elif 'dog' in image_path:
+                    label = 'dog'
+                else:
+                    print('label not understood')
+                    return False
+
+                evaluation_data_path_filename = image_path
+                evaluation_metadata.append([id_number, label, filename, evaluation_data_path_filename])
+                id_number += 1
+
             # save clean metadata source for use in subsequent training
             training_metadata_df = pd.DataFrame(training_metadata)
             training_metadata_df.to_csv(''.join([local_script_settings['clean_data_path'],
                                                  'training_metadata.csv']), index=False, header=None)
             training_metadata_df.to_csv(''.join([local_script_settings['train_data_path'],
                                                  'training_metadata.csv']), index=False, header=None)
+            evaluation_metadata_df = pd.DataFrame(evaluation_metadata)
+            evaluation_metadata_df.to_csv(''.join([local_script_settings['clean_data_path'],
+                                                   'evaluation_metadata.csv']), index=False, header=None)
+            evaluation_metadata_df.to_csv(''.join([local_script_settings['train_data_path'],
+                                                   'evaluation_metadata.csv']), index=False, header=None)
             np.save(''.join([local_script_settings['clean_data_path'], 'training_metadata_np']),
                     training_metadata)
-            print('train data -and their metadata- saved to file')
+            np.save(''.join([local_script_settings['clean_data_path'], 'evaluation_metadata_np']),
+                    evaluation_metadata)
+            print('train and evaluation data -and their metadata- saved to file')
             logger.info(''.join(['\n', datetime.datetime.now().strftime("%d.%b %Y %H:%M:%S"),
                                  ' successful saved training data and correspondent metadata']))
             with open('./settings.json', 'w', encoding='utf-8') as local_wr_json_file:
@@ -170,7 +196,7 @@ def prepare():
         # save clean metadata source for use in subsequent training
         # if local_script_settings['disaggregation_done'] == "False":
         #     training_metadata_df = pd.DataFrame(training_metadata)
-        #     column_names = ['id_number', 'method', 'quality_factor', 'group', 'filename', 'filepath']
+        #     column_names = ['id_number', 'label', 'quality_factor', 'group', 'filename', 'filepath']
         #     training_metadata_df.to_csv(''.join([local_script_settings['clean_data_path'],
         #                                          'training_metadata.csv']), index=False, header=column_names)
         #     np.save(''.join([local_script_settings['clean_data_path'], 'training_metadata_np']),
@@ -203,7 +229,7 @@ def prepare():
                 local_wr_json_file.close()
         logger.info(''.join(['\n', datetime.datetime.now().strftime("%d.%b %Y %H:%M:%S"),
                              ' settings modified and saved']))
-        print('raw datasets cleaned, settings saved..')
+        print("raw datasets cleaned, settings saved..")
     except Exception as e1:
         print('Error saving settings')
         print(e1)
