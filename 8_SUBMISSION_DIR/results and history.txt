@@ -1,0 +1,757 @@
+C:\carpeta_p_pycharm\M5_kaggle_accuracy\venv\Scripts\python.exe "C:\Program Files\JetBrains\PyCharm 2019.3.4\plugins\python\helpers\pydev\pydevconsole.py" --mode=client --port=63063
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['C:\\carpeta_p_pycharm\\cat_vs_dog_2020', 'C:/carpeta_p_pycharm/cat_vs_dog_2020'])
+PyDev console: starting.
+Python 3.8.2 (tags/v3.8.2:7b3ab59, Feb 25 2020, 23:03:10) [MSC v.1916 64 bit (AMD64)] on win32
+>>> runfile('C:/carpeta_p_pycharm/cat_vs_dog_2020/_0_main.py', wdir='C:/carpeta_p_pycharm/cat_vs_dog_2020')
+2020-07-21 18:21:50.633525: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+-python libraries loaded
+-settings loaded
+-logging setup completed
+-current settings registered in log
+2020-07-21 18:21:52.955505: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library nvcuda.dll
+2020-07-21 18:21:52.984057: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:1f:00.0 name: GeForce GTX 1660 SUPER computeCapability: 7.5
+coreClock: 1.83GHz coreCount: 22 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 312.97GiB/s
+2020-07-21 18:21:52.984326: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-07-21 18:21:52.988946: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-07-21 18:21:52.992342: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-07-21 18:21:52.993440: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-07-21 18:21:52.997298: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-07-21 18:21:52.999245: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-07-21 18:21:53.007235: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-07-21 18:21:53.007838: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-07-21 18:21:53.019179: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2020-07-21 18:21:53.027180: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x16f1d4904e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2020-07-21 18:21:53.027424: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2020-07-21 18:21:53.027899: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1716] Found device 0 with properties: 
+pciBusID: 0000:1f:00.0 name: GeForce GTX 1660 SUPER computeCapability: 7.5
+coreClock: 1.83GHz coreCount: 22 deviceMemorySize: 6.00GiB deviceMemoryBandwidth: 312.97GiB/s
+2020-07-21 18:21:53.028100: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudart64_101.dll
+2020-07-21 18:21:53.028184: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-07-21 18:21:53.028284: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cufft64_10.dll
+2020-07-21 18:21:53.028371: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library curand64_10.dll
+2020-07-21 18:21:53.028611: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusolver64_10.dll
+2020-07-21 18:21:53.028754: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cusparse64_10.dll
+2020-07-21 18:21:53.028885: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-07-21 18:21:53.029368: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1858] Adding visible gpu devices: 0
+2020-07-21 18:21:53.630912: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1257] Device interconnect StreamExecutor with strength 1 edge matrix:
+2020-07-21 18:21:53.631067: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1263]      0 
+2020-07-21 18:21:53.631152: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1276] 0:   N 
+2020-07-21 18:21:53.631883: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1402] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 4618 MB memory) -> physical GPU (device: 0, name: GeForce GTX 1660 SUPER, pci bus id: 0000:1f:00.0, compute capability: 7.5)
+2020-07-21 18:21:53.634457: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x16f3f7b2eb0 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+2020-07-21 18:21:53.634637: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): GeForce GTX 1660 SUPER, Compute Capability 7.5
+-principal modules imported
+-custom modules imported
+~main_program launching~
+~prepare_data module~
+datasets already cleaned, based in settings info
+skipping prepare_data cleaning, as settings indicates
+~train_model module~
+-current models hyperparameters registered in log
+~train_model module~
+training of neural_network previously done
+repeating training
+Found 20995 validated image filenames belonging to 2 classes.
+classes and indices of train_generator
+{'cat': 0, 'dog': 1}
+Found 3705 validated image filenames belonging to 2 classes.
+classes and indices of validation_generator
+{'cat': 0, 'dog': 1}
+model efficientNetB2 built and compiled
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+efficientnetb2 (Functional)  (None, None, None, 1408)  7768569   
+_________________________________________________________________
+global_max_pooling2d (Global (None, 1408)              0         
+_________________________________________________________________
+dropout (Dropout)            (None, 1408)              0         
+_________________________________________________________________
+dense (Dense)                (None, 2)                 2818      
+=================================================================
+Total params: 7,771,387
+Trainable params: 1,241,858
+Non-trainable params: 6,529,529
+_________________________________________________________________
+WARNING:tensorflow:From C:\carpeta_p_pycharm\M5_kaggle_accuracy\venv\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Model.state_updates (from tensorflow.python.keras.engine.training) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+2020-07-21 18:22:15.028309: W tensorflow/python/util/util.cc:348] Sets are not currently considered sequences, but this may change in the future, so consider avoiding using them.
+WARNING:tensorflow:From C:\carpeta_p_pycharm\M5_kaggle_accuracy\venv\lib\site-packages\tensorflow\python\training\tracking\tracking.py:111: Layer.updates (from tensorflow.python.keras.engine.base_layer) is deprecated and will be removed in a future version.
+Instructions for updating:
+This property should not be used in TensorFlow 2.0, as updates are applied automatically.
+INFO:tensorflow:Assets written to: ./5.0_MODELS_DIR/_7_layers_CNN__EfficientNetB2/assets
+model architecture saved
+trying to open model file (assuming h5 format)
+model analyzer ended with success, model EfficientNetB2 saved in json and txt formats
+WARNING:tensorflow:Automatic model reloading for interrupted job was removed from the `ModelCheckpoint` callback in multi-worker mode, please use the `keras.callbacks.experimental.BackupAndRestore` callback instead. See this tutorial for details: https://www.tensorflow.org/tutorials/distribute/multi_worker_with_keras#backupandrestore_callback.
+2020-07-21 18:22:58.418891: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:22:58.423132: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:22:58.428327: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:22:58.431692: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 1/10
+2020-07-21 18:23:06.140503: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:23:06.360637: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 378/1932 nodes to float16 precision using 52 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:23:06.749203: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 0/2067 nodes to float16 precision using 0 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:23:07.012080: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cublas64_10.dll
+2020-07-21 18:23:07.279607: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:23:07.281598: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:23:07.283440: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:23:07.952585: I tensorflow/stream_executor/platform/default/dso_loader.cc:48] Successfully opened dynamic library cudnn64_7.dll
+2020-07-21 18:23:09.111095: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+2020-07-21 18:23:09.148242: I tensorflow/core/platform/windows/subprocess.cc:308] SubProcess ended with return code: 0
+656/656 [==============================] - ETA: 0s - loss: 3.3111 - categorical_accuracy: 0.92112020-07-21 18:25:52.454582: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:25:52.458059: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:25:52.462370: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:25:52.465583: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:25:53.605948: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:25:53.735199: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 298/1520 nodes to float16 precision using 47 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:25:54.006892: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 0/1714 nodes to float16 precision using 0 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:25:54.209655: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:25:54.211671: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:25:54.213996: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00001: loss improved from inf to 3.31106, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-3.3111-.hdf5
+656/656 [==============================] - 191s 292ms/step - loss: 3.3111 - categorical_accuracy: 0.9211 - val_loss: 0.7248 - val_categorical_accuracy: 0.9864
+2020-07-21 18:26:20.929787: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:26:20.933059: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 2/10
+2020-07-21 18:26:20.942075: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:26:20.944180: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:26:20.946452: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 1.0030 - categorical_accuracy: 0.97562020-07-21 18:29:05.812336: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:29:05.815739: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:29:05.820094: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:29:05.823449: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:29:05.829878: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:29:05.831732: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:29:05.833618: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00002: loss improved from 3.31106 to 1.00295, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-1.0030-.hdf5
+656/656 [==============================] - 191s 291ms/step - loss: 1.0030 - categorical_accuracy: 0.9756 - val_loss: 0.6409 - val_categorical_accuracy: 0.9899
+2020-07-21 18:29:32.592749: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:29:32.596038: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 3/10
+2020-07-21 18:29:32.604870: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:29:32.606965: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:29:32.608861: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.8169 - categorical_accuracy: 0.98092020-07-21 18:32:17.039535: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:32:17.043377: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:32:17.048022: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:32:17.051617: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:32:17.058074: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:32:17.059780: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:32:17.062373: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00003: loss improved from 1.00295 to 0.81691, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.8169-.hdf5
+656/656 [==============================] - 190s 290ms/step - loss: 0.8169 - categorical_accuracy: 0.9809 - val_loss: 0.6020 - val_categorical_accuracy: 0.9897
+2020-07-21 18:32:43.821449: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:32:43.824807: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 4/10
+2020-07-21 18:32:43.834002: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:32:43.835871: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:32:43.838002: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.7456 - categorical_accuracy: 0.98232020-07-21 18:35:28.619887: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:35:28.623277: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:35:28.627676: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:35:28.630911: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:35:28.637417: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:35:28.639534: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:35:28.641427: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00004: loss improved from 0.81691 to 0.74558, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.7456-.hdf5
+656/656 [==============================] - 191s 290ms/step - loss: 0.7456 - categorical_accuracy: 0.9823 - val_loss: 0.5879 - val_categorical_accuracy: 0.9894
+2020-07-21 18:35:55.290292: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:35:55.293705: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 5/10
+2020-07-21 18:35:55.302741: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:35:55.304688: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:35:55.306641: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.6555 - categorical_accuracy: 0.98442020-07-21 18:38:39.524624: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:38:39.528001: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:38:39.532398: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:38:39.535621: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:38:39.542025: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:38:39.543877: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:38:39.545766: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00005: loss improved from 0.74558 to 0.65546, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.6555-.hdf5
+656/656 [==============================] - 190s 290ms/step - loss: 0.6555 - categorical_accuracy: 0.9844 - val_loss: 0.5832 - val_categorical_accuracy: 0.9902
+2020-07-21 18:39:06.313249: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:39:06.316546: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 6/10
+2020-07-21 18:39:06.325624: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:39:06.327775: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:39:06.330040: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.6344 - categorical_accuracy: 0.98532020-07-21 18:41:51.580081: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:41:51.583486: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:41:51.587762: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:41:51.591022: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:41:51.597324: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:41:51.599172: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:41:51.601434: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00006: loss improved from 0.65546 to 0.63441, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.6344-.hdf5
+656/656 [==============================] - 191s 291ms/step - loss: 0.6344 - categorical_accuracy: 0.9853 - val_loss: 0.4219 - val_categorical_accuracy: 0.9929
+2020-07-21 18:42:18.444597: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:42:18.447897: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 7/10
+2020-07-21 18:42:18.457011: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:42:18.458950: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:42:18.460855: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.5255 - categorical_accuracy: 0.98572020-07-21 18:45:04.118051: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:45:04.121509: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:45:04.125871: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:45:04.129088: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:45:04.135534: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:45:04.137391: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:45:04.139575: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00007: loss improved from 0.63441 to 0.52553, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.5255-.hdf5
+656/656 [==============================] - 192s 292ms/step - loss: 0.5255 - categorical_accuracy: 0.9857 - val_loss: 0.6214 - val_categorical_accuracy: 0.9889
+2020-07-21 18:45:31.220802: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:45:31.224206: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 8/10
+2020-07-21 18:45:31.241366: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:45:31.243230: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:45:31.245611: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.5131 - categorical_accuracy: 0.98682020-07-21 18:48:17.309654: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:48:17.313150: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:48:17.317640: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:48:17.320810: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:48:17.327263: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:48:17.329114: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:48:17.331081: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00008: loss improved from 0.52553 to 0.51309, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.5131-.hdf5
+656/656 [==============================] - 192s 292ms/step - loss: 0.5131 - categorical_accuracy: 0.9868 - val_loss: 0.5901 - val_categorical_accuracy: 0.9889
+2020-07-21 18:48:44.083851: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:48:44.087258: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 9/10
+2020-07-21 18:48:44.096779: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:48:44.098661: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:48:44.100618: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.3940 - categorical_accuracy: 0.98832020-07-21 18:51:28.832177: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:51:28.836147: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:51:28.840673: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:51:28.844269: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:51:28.850847: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:51:28.852573: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:51:28.854817: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00009: loss improved from 0.51309 to 0.39400, saving model to ./6_CHECKPOINTS_DIR\check_point__7_layers_CNN__loss_-0.3940-.hdf5
+656/656 [==============================] - 190s 290ms/step - loss: 0.3940 - categorical_accuracy: 0.9883 - val_loss: 0.5049 - val_categorical_accuracy: 0.9905
+2020-07-21 18:51:55.505632: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:51:55.508950: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 10/10
+2020-07-21 18:51:55.518026: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:51:55.520423: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:51:55.522600: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+656/656 [==============================] - ETA: 0s - loss: 0.4097 - categorical_accuracy: 0.98812020-07-21 18:54:40.307178: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:54:40.310588: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:54:40.314844: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:54:40.318005: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:54:40.324246: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:54:40.326117: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:54:40.328051: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+Epoch 00010: loss did not improve from 0.39400
+656/656 [==============================] - 190s 290ms/step - loss: 0.4097 - categorical_accuracy: 0.9881 - val_loss: 0.4648 - val_categorical_accuracy: 0.9913
+INFO:tensorflow:Assets written to: ./5.0_MODELS_DIR/_7_layers_CNN__EfficientNetB2_trained_/assets
+full training of each group module ended
+~predict module~
+predictions saved to file
+predictions saved, submission file built and stored
+predictions process ended successfully
+~evaluation module~
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+efficientnetb2 (Functional)  (None, None, None, 1408)  7768569   
+_________________________________________________________________
+global_max_pooling2d (Global (None, 1408)              0         
+_________________________________________________________________
+dropout (Dropout)            (None, 1408)              0         
+_________________________________________________________________
+dense (Dense)                (None, 2)                 2818      
+=================================================================
+Total params: 7,771,387
+Trainable params: 1,241,858
+Non-trainable params: 6,529,529
+_________________________________________________________________
+model loaded and by default the currents weights saved today will be loaded
+current model loaded and layers were set to not_trainable
+Found 300 validated image filenames belonging to 2 classes.
+2020-07-21 18:56:08.005660: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:56:08.009163: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:08.013497: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:56:08.016900: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:09.127950: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:09.248980: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 298/1468 nodes to float16 precision using 47 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:56:09.543419: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 0/1676 nodes to float16 precision using 0 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:56:09.765403: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:09.767473: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:09.769400: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+[[1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [9.9999034e-01 9.7121720e-06]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 1.7376979e-33]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 2.0346504e-36]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [4.6885707e-06 9.9999535e-01]
+ [1.0000000e+00 0.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 5.8520692e-24]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [1.5578143e-21 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [2.0189734e-11 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [1.0000000e+00 0.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [2.3739357e-12 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [1.7625798e-18 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [2.3725481e-29 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [2.1164897e-09 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [1.7957346e-24 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]
+ [0.0000000e+00 1.0000000e+00]]
+Confusion Matrix for all categories
+[[148   2]
+ [  1 149]]
+Classification Report
+{'cat': 0, 'dog': 1}
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+[0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 1 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1]
+              precision    recall  f1-score   support
+         cat       0.99      0.99      0.99       150
+         dog       0.99      0.99      0.99       150
+    accuracy                           0.99       300
+   macro avg       0.99      0.99      0.99       300
+weighted avg       0.99      0.99      0.99       300
+evaluation of classifier by tf.keras.models.evaluate:
+2020-07-21 18:56:12.028147: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:56:12.031699: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:12.036168: W tensorflow/core/common_runtime/executor.cc:1086] [/device:CPU:0] Executor start aborting: Invalid argument: You must feed a value for placeholder tensor 'Placeholder/_0' with dtype int32
+	 [[{{node Placeholder/_0}}]]
+2020-07-21 18:56:12.039581: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:13.189210: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:13.337994: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 298/1520 nodes to float16 precision using 47 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:56:13.625763: I tensorflow/core/grappler/optimizers/auto_mixed_precision.cc:1924] Converted 0/1714 nodes to float16 precision using 0 cast(s) to float16 (excluding Const and Variable casts)
+2020-07-21 18:56:13.839091: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:13.841356: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+2020-07-21 18:56:13.843478: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:118] None of the MLIR optimization passes are enabled (registered 1)
+10/10 [==============================] - 2s 183ms/step - loss: 0.7165 - categorical_accuracy: 0.9900
+{'loss': 0.716461181640625, 'categorical_accuracy': 0.9900000095367432}
+C:\carpeta_p_pycharm\M5_kaggle_accuracy\venv\lib\site-packages\numpy\lib\arraysetops.py:580: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
+  mask |= (ar1 == a)
+log_loss(sklearn.metrics): 17.202787828842954
+number of classes: 2 
+tf.Tensor(
+[[148   2]
+ [  1 149]], shape=(2, 2), dtype=int32)
+adjusting evaluation to ~binary classification (if not already the case)
+Confusion Matrix for binary classification
+prob class_1:
+ [0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 9.7121720e-06
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 1.7376979e-33 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 2.0346504e-36
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 9.9999535e-01 0.0000000e+00 1.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 5.8520692e-24 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00 0.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 0.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00
+ 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00 1.0000000e+00] 
+ground_truth: [0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+ 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+ 1 1 1 1]
+confusion_matrix_tf_binary
+tf.Tensor(
+[[148   2]
+ [  1 149]], shape=(2, 2), dtype=int32) 
+confusion_matrix_sklearn_binary
+[[148   2]
+ [  1 149]] 
+              precision    recall  f1-score   support
+     class_0       0.99      0.99      0.99       150
+     class_1       0.99      0.99      0.99       150
+    accuracy                           0.99       300
+   macro avg       0.99      0.99      0.99       300
+weighted avg       0.99      0.99      0.99       300
+ AUC_ROC score: 0.9932222222222221
+model evaluation subprocess ended successfully
+~~end of process~~
+subprocess report success?
+preparing:  True
+training:  True
+predicting:  True
+evaluating:  True
