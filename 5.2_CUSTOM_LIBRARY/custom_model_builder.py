@@ -301,15 +301,15 @@ class model_classifier_:
                                                                    input_tensor=None, input_shape=None,
                                                                    pooling=None,
                                                                    classifier_activation='softmax')
-                classifier_.trainable = True
-                # for layer in classifier_.layers:
-                #     layer.trainable = False
-                #     if 'excite' in layer.name:
-                #         layer.trainable = True
-                #     if 'top_conv' in layer.name:
-                #         layer.trainable = False
-                #     if 'block7b_project_conv' in layer.name:
-                #         layer.trainable = False
+                # classifier_.trainable = True
+                for layer in classifier_.layers:
+                    layer.trainable = False
+                    if 'excite' in layer.name:
+                        layer.trainable = True
+                    if 'top_conv' in layer.name:
+                        layer.trainable = True
+                    if 'block7b_project_conv' in layer.name:
+                        layer.trainable = True
 
                 if local_settings['nof_methods'] == 2:
                     # if two classes, and imbalanced, bias_initializer = log(pos/neg)
@@ -329,7 +329,7 @@ class model_classifier_:
                 effnb2_model.build(input_shape=(input_shape_y, input_shape_x, nof_channels))
                 effnb2_model.compile(optimizer=optimizer_function, loss=losses_list, metrics=metrics_list)
                 classifier_ = effnb2_model
-
+                print('model efficientNetB2 built and compiled')
             else:
                 print('model to use is not defined')
                 return False

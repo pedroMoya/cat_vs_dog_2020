@@ -64,10 +64,10 @@ def prepare():
     try:
         # define filepaths
         raw_data_path = local_script_settings['raw_data_path']
-        label_0_raw_data_path = ''.join([raw_data_path, local_script_settings['label_0_folder']])
-        label_1_raw_data_path = ''.join([raw_data_path, local_script_settings['label_1_folder']])
-        label_0_raw_data_evaluation_path = ''.join([raw_data_path, local_script_settings['label_0_evaluation_folder']])
-        label_1_raw_data_evaluation_path = ''.join([raw_data_path, local_script_settings['label_1_evaluation_folder']])
+        label_0_raw_data_path = ''.join([raw_data_path, local_script_settings['class_0_folder']])
+        label_1_raw_data_path = ''.join([raw_data_path, local_script_settings['class_1_folder']])
+        label_0_raw_data_evaluation_path = ''.join([raw_data_path, local_script_settings['class_0_evaluation_folder']])
+        label_1_raw_data_evaluation_path = ''.join([raw_data_path, local_script_settings['class_1_evaluation_folder']])
 
         # extract files
         if not os.path.isfile(''.join([local_script_settings['raw_data_path'], 'images_localization.txt'])):
@@ -163,9 +163,9 @@ def prepare():
             training_metadata_df.to_csv(''.join([local_script_settings['train_data_path'],
                                                  'training_metadata.csv']), index=False, header=None)
             evaluation_metadata_df = pd.DataFrame(evaluation_metadata)
-            evaluation_metadata_df.to_csv(''.join([local_script_settings['clean_data_path'],
+            evaluation_metadata_df.to_csv(''.join([local_script_settings['models_evaluation_path'],
                                                    'evaluation_metadata.csv']), index=False, header=None)
-            evaluation_metadata_df.to_csv(''.join([local_script_settings['train_data_path'],
+            evaluation_metadata_df.to_csv(''.join([local_script_settings['models_evaluation_path'],
                                                    'evaluation_metadata.csv']), index=False, header=None)
             np.save(''.join([local_script_settings['clean_data_path'], 'training_metadata_np']),
                     training_metadata)
