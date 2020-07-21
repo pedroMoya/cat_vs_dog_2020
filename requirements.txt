@@ -1,8 +1,1 @@
-tensorflow~=2.2.0
 # for EfficienNetB2 also tf-nightly 2.4.0
-numpy~=1.19.0
-pandas~=1.0.5
-scikit-learn~=0.23.1
-Pillow~=7.2.0
-jpegio~=0.2.1
-cv2~=4.3.0
